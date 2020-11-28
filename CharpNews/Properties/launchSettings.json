@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "CharpNews": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}
