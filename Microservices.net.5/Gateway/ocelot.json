@@ -1,0 +1,54 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/Video/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "videostreamservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/stream-video/{everything}",
+      "UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "videoswagger"
+    },
+    {
+      "DownstreamPathTemplate": "/Movies/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "paymentservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/catalog/movies/{everything}",
+      "UpstreamHttpMethod": [ "Get", "POST", "PUT", "DELETE" ],
+      "SwaggerKey": "moviesswagger"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "videoswagger",
+      "Config": [
+        {
+          "Name": "videoswagger API",
+          "Version": "v1",
+          "Url": "http://videostreamservice/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "moviesswagger",
+      "Config": [
+        {
+          "Name": "moviesswagger API",
+          "Version": "v1",
+          "Url": "http://paymentservice/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+  }
+}

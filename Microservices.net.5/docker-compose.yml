@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  paymentservice:
+    image: ${DOCKER_REGISTRY-}paymentservice
+    build:
+      context: .
+      dockerfile: PaymentService/Dockerfile
+
+  videostreamservice:
+    image: ${DOCKER_REGISTRY-}videostreamservice
+    build:
+      context: .
+      dockerfile: VideoStreamService/Dockerfile
+  
+  gateway:
+    image: ${DOCKER_REGISTRY-}gateway
+    build:
+      context: .
+      dockerfile: Gateway/Dockerfile
+
